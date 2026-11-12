@@ -2,7 +2,6 @@
 import json
 import logging
 import os
-from decimal import Decimal, InvalidOperation
 
 from pydantic import BaseModel, Field
 
@@ -154,8 +153,8 @@ async def assess(record: dict) -> Assessment:
         return Assessment(
             severity=baseline.severity,
             explanation=output.explanation,
-            
-            requires_human_review=baseline.requires_human_review,
+            recommended_action=baseline.recommended_action,
+                requires_human_review=baseline.requires_human_review,
             analysis_source="openai",
         )
 
